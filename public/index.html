@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PalletTrack | Gestión de almacén</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- PANTALLA 1: LOGIN -->
+    <section id="login" class="login-page">
+        <div class="login-card">
+            <div class="login-logo">PT</div>
+            <h1>PalletTrack</h1>
+            <p class="login-subtitle">Sistema de gestión de inventarios</p>
+
+            <div class="login-welcome">
+                <h2>Bienvenido</h2>
+            </div>
+
+            <div>
+                <label>Correo electrónico</label>
+                <input type="email" placeholder="usuario@empresa.com">
+
+                <label>Contraseña</label>
+                <input type="password" placeholder="Ingresa tu contraseña">
+
+                <div class="remember">
+                    <input type="checkbox">
+                    <span>Recordarme</span>
+                </div>
+
+                <button type="button" class="btn-login" onclick="entrar()">Iniciar sesión</button>
+            </div>
+
+            <p class="login-footer"> 2026 PalletTrack. Todos los derechos reservados.</p>
+        </div>
+    </section>
+
+    <!-- ESTRUCTURA DEL SISTEMA -->
+    <div id="sistema" class="system-layout oculto">
+        
+        <!-- MENÚ LATERAL -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-logo">PT</div>
+                <div>
+                    <h2>PalletTrack</h2>
+                    <small>SISTEMA DE INVENTARIO</small>
+                </div>
+            </div>
+
+            <p class="menu-label">MENÚ PRINCIPAL</p>
+
+            <button type="button" class="menu-item active" onclick="mostrarPantalla('productos', this)">
+                <span>▦</span> Catálogo de productos
+            </button>
+            <button type="button" class="menu-item" onclick="mostrarPantalla('ubicaciones', this)">
+                <span>⌖</span> Catálogo de ubicaciones
+            </button>
+
+            <div class="sidebar-bottom">
+                <div class="profile">
+                    <div class="profile-avatar">AP</div>
+                    <div>
+                        <strong>Andrea Paola</strong>
+                        <small>Administrador</small>
+                    </div>
+                </div>
+                <button type="button" class="logout" onclick="cerrarSesion()"> Cerrar sesión</button>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content">
+            
+            <!-- BARRA SUPERIOR -->
+            <header class="topbar">
+                <div>
+                    <h2 id="titulo-pagina">Catálogo de productos</h2>
+                    <p>Panel de administración PalletTrack</p>
+                </div>
+                <div class="topbar-user">
+                    <div class="notification"></div>
+                    <div class="profile-avatar">AP</div>
+                    <div>
+                        <strong>Andrea Paola</strong>
+                        <small>Administrador</small>
+                    </div>
+                </div>
+            </header>
+
+            <!-- PANTALLA 2: PRODUCTOS -->
+            <section id="productos" class="content-section">
+                <div class="page-heading">
+                    <div>
+                        <h1>Catálogo de productos</h1>
+                        <p>Consulta y administración de productos registrados.</p>
+                    </div>
+                    <button type="button" class="btn-primary">+ Agregar producto</button>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon blue">▦</div>
+                        <p>Total de productos</p>
+                        <h2>248</h2>
+                        <small>Productos registrados</small>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">✓</div>
+                        <p>Productos disponibles</p>
+                        <h2>215</h2>
+                        <small>En inventario</small>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange">▤</div>
+                        <p>Unidades registradas</p>
+                        <h2>765</h2>
+                        <small>Existencias totales</small>
+                    </div>
+                </div>
+
+                <div class="table-card">
+                    <div class="table-header">
+                        <div>
+                            <h3>Lista de productos</h3>
+                            <p>Productos registrados en el sistema</p>
+                        </div>
+                        <input type="text" placeholder="Buscar producto..." class="search-input">
+                    </div>
+
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>SKU</th>
+                                    <th>Nombre del producto</th>
+                                    <th>Unidad de medida</th>
+                                    <th>Stock</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>PRO-001</td>
+                                    <td>Tarima de madera</td>
+                                    <td>Pieza</td>
+                                    <td>120</td>
+                                    <td><span class="badge disponible">Disponible</span></td>
+                                    <td>✎ &nbsp; ◉</td>
+                                </tr>
+                                <tr>
+                                    <td>PRO-002</td>
+                                    <td>Materia prima</td>
+                                    <td>Kilogramo</td>
+                                    <td>210</td>
+                                    <td><span class="badge disponible">Disponible</span></td>
+                                    <td>✎ &nbsp; ◉</td>
+                                </tr>
+                                <tr>
+                                    <td>PRO-003</td>
+                                    <td>Empaque industrial</td>
+                                    <td>Paquete</td>
+                                    <td>0</td>
+                                    <td><span class="badge agotado">Agotado</span></td>
+                                    <td>✎ &nbsp; ◉</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-footer">Mostrando 3 productos de 248</div>
+                </div>
+            </section>
+
+            <!-- PANTALLA 3: UBICACIONES -->
+            <section id="ubicaciones" class="content-section oculto">
+                <div class="page-heading">
+                    <div>
+                        <h1>Catálogo de ubicaciones</h1>
+                        <p>Administración de zonas, racks y posiciones del almacén.</p>
+                    </div>
+                    <button type="button" class="btn-primary">+ Agregar ubicación</button>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon blue">⌖</div>
+                        <p>Total de ubicaciones</p>
+                        <h2>120</h2>
+                        <small>Posiciones registradas</small>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">▦</div>
+                        <p>Zonas disponibles</p>
+                        <h2>3</h2>
+                        <small>Áreas de almacenamiento</small>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange">▤</div>
+                        <p>Racks registrados</p>
+                        <h2>18</h2>
+                        <small>Espacios de almacenamiento</small>
+                    </div>
+                </div>
+
+                <div class="table-card">
+                    <div class="table-header">
+                        <div>
+                            <h3>Ubicaciones registradas</h3>
+                            <p>Listado de posiciones del almacén</p>
+                        </div>
+                        <input type="text" placeholder="Buscar ubicación..." class="search-input">
+                    </div>
+
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Código de posición</th>
+                                    <th>Zona</th>
+                                    <th>Rack</th>
+                                    <th>Nivel</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>UBI-001</td>
+                                    <td>Zona A</td>
+                                    <td>Rack 01</td>
+                                    <td>Nivel 01</td>
+                                    <td><span class="badge disponible">Disponible</span></td>
+                                    <td>✎ &nbsp; ◉</td>
+                                </tr>
+                                <tr>
+                                    <td>UBI-002</td>
+                                    <td>Zona B</td>
+                                    <td>Rack 03</td>
+                                    <td>Nivel 02</td>
+                                    <td><span class="badge disponible">Disponible</span></td>
+                                    <td>✎ &nbsp; ◉</td>
+                                </tr>
+                                <tr>
+                                    <td>UBI-003</td>
+                                    <td>Zona C</td>
+                                    <td>Rack 04</td>
+                                    <td>Nivel 01</td>
+                                    <td><span class="badge ocupado">Ocupado</span></td>
+                                    <td>✎ &nbsp; ◉</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-footer">Mostrando 3 ubicaciones de 120</div>
+                </div>
+            </section>
+
+            <footer class="footer">
+                PalletTrack  2026 | Sistema de gestión de almacenes
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        function entrar() {
+            document.getElementById("login").classList.add("oculto");
+            document.getElementById("sistema").classList.remove("oculto");
+            mostrarPantalla("productos", document.querySelector(".menu-item"));
+        }
+
+        function mostrarPantalla(nombre, boton) {
+            document.querySelectorAll(".content-section").forEach(pantalla => {
+                pantalla.classList.add("oculto");
+            });
+            document.getElementById(nombre).classList.remove("oculto");
+
+            document.querySelectorAll(".menu-item").forEach(menu => {
+                menu.classList.remove("active");
+            });
+
+            if (boton) {
+                boton.classList.add("active");
+            }
+
+            const titulos = {
+                productos: "Catálogo de productos",
+                ubicaciones: "Catálogo de ubicaciones"
+            };
+            document.getElementById("titulo-pagina").textContent = titulos[nombre] || "PalletTrack";
+        }
+
+        function cerrarSesion() {
+            document.getElementById("sistema").classList.add("oculto");
+            document.getElementById("login").classList.remove("oculto");
+        }
+    </script>
+</body>
+</html>
