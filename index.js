@@ -10,5 +10,5 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 app.listen(PORT, () => {
-    console.log(`PalletTrack funcionando en http://localhost:${PORT}`);
+    console.log(`PalletTrack funcionando en https://proyecto-pallettrack.onrender.com`);
 });
