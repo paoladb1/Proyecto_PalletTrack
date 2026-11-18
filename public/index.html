@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PalletTrack</title>
+    <title>Registro | PalletTrack</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -18,17 +18,81 @@
             <h1>PalletTrack</h1>
             <p class="login-subtitle">Sistema de gestión de inventarios</p>
             <h2>Bienvenido</h2>
-            <label>Correo electrónico</label>
-            <input type="email" placeholder="usuario@empresa.com">
-            <label>Contraseña</label>
-            <input type="password" placeholder="Ingresa tu contraseña">
+            <label for="login-correo">Correo electrónico</label>
+            <input type="email" id="login-correo" placeholder="usuario@empresa.com">
+            <label for="login-password">Contraseña</label>
+            <input type="password" id="login-password" placeholder="Ingresa tu contraseña">
             <div class="remember">
-                <input type="checkbox">
+                <input type="checkbox" id="login-recordar">
                 <span>Recordarme</span>
             </div>
+
+            <small class="login-error" id="login-error" role="alert"></small>
+
             <button class="btn-login" onclick="entrar()">
                 Iniciar sesión
             </button>
+            <button class="btn-register" onclick="irRegistro()">
+                Registrarse
+            </button>
+            <p class="login-footer">
+                2026 PalletTrack. Todos los derechos reservados.
+            </p>
+        </div>
+    </section>
+    <section id="registro" class="login-page oculto">
+        <div class="login-card register-card">
+            <div class="login-logo">PT</div>
+            <h1>PalletTrack</h1>
+            <p class="login-subtitle">Sistema de gestión de inventarios</p>
+
+            <h2>Crear cuenta</h2>
+
+            <form id="form-registro" onsubmit="registrarUsuario(event)" novalidate>
+
+                <div class="reg-field">
+                    <label for="reg-empresa">Nombre de la empresa</label>
+                    <input type="text" id="reg-empresa" placeholder="Ej. EmpresaArcosS1" autocomplete="organization">
+                    <small class="reg-error" id="error-empresa"></small>
+                </div>
+
+                <div class="reg-field">
+                    <label for="reg-nombre">Nombre completo</label>
+                    <input type="text" id="reg-nombre" placeholder="Ingresa tu nombre" autocomplete="name">
+                    <small class="reg-error" id="error-nombre"></small>
+                </div>
+
+                <div class="reg-field">
+                    <label for="reg-correo">Correo electrónico</label>
+                    <input type="email" id="reg-correo" placeholder="usuario@empresa.com" autocomplete="email">
+                    <small class="reg-error" id="error-correo"></small>
+                </div>
+
+                <div class="reg-row">
+                    <div class="reg-field">
+                        <label for="reg-password">Contraseña</label>
+                        <input type="password" id="reg-password" placeholder="Mínimo 8 caracteres" autocomplete="new-password">
+                        <small class="reg-error" id="error-password"></small>
+                    </div>
+                    <div class="reg-field">
+                        <label for="reg-confirmar">Confirmar contraseña</label>
+                        <input type="password" id="reg-confirmar" placeholder="Repite la contraseña" autocomplete="new-password">
+                        <small class="reg-error" id="error-confirmar"></small>
+                    </div>
+                </div>
+
+                <div class="remember">
+                    <input type="checkbox" id="reg-terminos">
+                    <span>Acepto los términos y condiciones</span>
+                </div>
+                <small class="reg-error" id="error-terminos"></small>
+
+                <button type="submit" class="btn-login">Crear cuenta</button>
+                <button type="button" class="btn-register" onclick="volverLogin()">Ya tengo cuenta</button>
+            </form>
+
+            <p id="reg-mensaje" class="reg-mensaje oculto" role="status"></p>
+
             <p class="login-footer">
                 2026 PalletTrack. Todos los derechos reservados.
             </p>
@@ -59,6 +123,10 @@
             <button class="menu-item" onclick="mostrarPantalla('telemetria', this)">
                 <span></span>
                 Telemetría y auditoría
+            </button>
+            <button class="menu-item" onclick="mostrarPantalla('consultas', this)">
+                <span></span>
+                Consultas
             </button>
         </aside>
         <main class="main-content">
@@ -417,6 +485,89 @@
                     Confirmar embarque
                 </button>
             </section>
+
+            <!-- CONSULTAS -->
+<section id="consultas" class="content-section oculto">
+    <div class="page-heading">
+        <div>
+            <h1>Consultas de trazabilidad y stock</h1>
+            <p>Rastrea tarimas y lotes, y consulta existencias en todos los almacenes.</p>
+        </div>
+        <span class="badge disponible">Multialmacén</span>
+    </div>
+
+    <!-- TRAZABILIDAD -->
+    <div class="telemetry-filters">
+        <div>
+            <label for="consulta-tipo">Buscar por</label>
+            <select id="consulta-tipo">
+                <option value="tarima">Código de tarima</option>
+                <option value="lote">Lote</option>
+            </select>
+        </div>
+        <div>
+            <label for="consulta-codigo">Código</label>
+            <input type="text" id="consulta-codigo" class="search-input"
+                placeholder="Ej. PAL-2026-001" onkeydown="if(event.key==='Enter') consultarTrazabilidad()">
+        </div>
+        <button class="btn-primary" onclick="consultarTrazabilidad()">Consultar</button>
+    </div>
+
+    <div class="table-card">
+        <div class="table-header">
+            <div>
+                <h3>Historial de movimientos</h3>
+                <p id="trazabilidad-resumen">Escribe un código para ver su recorrido.</p>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha y hora</th>
+                        <th>Tarima</th>
+                        <th>Lote</th>
+                        <th>Evento</th>
+                        <th>Almacén / Ubicación</th>
+                        <th>Escáner</th>
+                    </tr>
+                </thead>
+                <tbody id="trazabilidad-tabla">
+                    <tr><td colspan="6">Sin resultados todavía.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- STOCK MULTIALMACÉN -->
+    <div class="table-card">
+        <div class="table-header">
+            <div>
+                <h3>Stock por almacén</h3>
+                <p>Existencias de cada producto en cada almacén</p>
+            </div>
+            <input class="search-input" id="stock-buscar" placeholder="Buscar producto o SKU..."
+                oninput="filtrarStock()">
+        </div>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>SKU</th>
+                        <th>Producto</th>
+                        <th>Almacén Norte</th>
+                        <th>Almacén Centro</th>
+                        <th>Almacén Sur</th>
+                        <th>Total</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="stock-tabla"></tbody>
+            </table>
+        </div>
+        <div class="table-footer" id="stock-pie"></div>
+    </div>
+</section>
             <!-- TELEMETRÍA -->
             <section id="telemetria" class="content-section oculto">
                 <div class="page-heading">

@@ -1039,3 +1039,81 @@ tbody tr:hover {
     }
 
 }
+
+/* ===== Botón secundario (sirve para "Registrarse" en index.html y "Ya tengo cuenta") ===== */
+.btn-register {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    background: #ffffff;
+    color: #1573bd;
+    border: 1.5px solid #1573bd;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-register:hover {
+    background: #eaf4fc;
+}
+
+.btn-register:focus-visible {
+    outline: 3px solid #9ccbee;
+    outline-offset: 2px;
+}
+
+/* ===== Pantalla de registro ===== */
+.register-card {
+    max-width: 460px;
+    width: 100%;
+}
+
+.reg-field {
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.reg-field label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.reg-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.reg-field input.invalido {
+    border-color: #d64545;
+}
+
+.reg-error {
+    display: block;
+    min-height: 16px;
+    margin-top: 4px;
+    color: #d64545;
+    font-size: 12px;
+}
+
+.reg-mensaje {
+    margin-top: 14px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: #e6f6ec;
+    color: #1d7a45;
+    font-size: 14px;
+    text-align: center;
+}
+
+.oculto {
+    display: none;
+}
+
+@media (max-width: 520px) {
+    .reg-row {
+        grid-template-columns: 1fr;
+    }
+}
