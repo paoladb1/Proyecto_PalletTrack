@@ -1,0 +1,76 @@
+<section id="despachos" class="content-section oculto">
+
+                <div class="page-heading">
+                    <div>
+                        <h1>Asignación y despacho de tarimas</h1>
+                        <p>Confirma el embarque mediante código QR</p>
+                    </div>
+                    <span class="badge disponible">● Despacho activo</span>
+                </div>
+                <div class="dispatch-filters">
+                    <div>
+                        <label for="orden-cliente">Orden de cliente</label>
+                        <select id="orden-cliente">
+                            <option>PED-2026-018</option>
+                            <option>PED-2026-019</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="estado-despacho">Estado</label>
+                        <select id="estado-despacho">
+                            <option>Despacho activo</option>
+                            <option>Pendiente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="dispatch-grid">
+                    <div class="table-card scan-card">
+                        <div class="section-title">
+                            <span class="stat-icon blue"></span>
+                            <h3>Escaneo de código QR</h3>
+                        </div>
+                        <div class="qr-area">
+                            <div class="qr-icon"></div>
+                            <h3>Escanear código</h3>
+                            <p>Coloca el código QR de la tarima</p>
+                        </div>
+                        <div class="pallet-info">
+                            <div class="section-title">
+                                <h3>PAL-2026-001</h3>
+                                <span class="badge disponible">Disponible</span>
+                            </div>
+                            <p><strong>Lote:</strong> LOT-2026-05</p>
+                            <p><strong>Producto:</strong> Caja de producto terminado</p>
+                            <p><strong>Ubicación:</strong> A-02 / Rack 04</p>
+                        </div>
+                    </div>
+                    <div class="right-cards">
+                        <div class="table-card validation-card">
+                            <div class="section-title">
+                                <span class="stat-icon orange"></span>
+                                <h3>Control</h3>
+                            </div>
+                            <div class="success-icon"></div>
+                            <h3 class="center">No se detectaron errores</h3>
+                            <p class="center">La tarima está disponible</p>
+
+                        </div>
+                        <div class="table-card summary-card">
+                            <div class="section-title">
+                                <h3>Resumen</h3>
+                            </div>
+                            <div class="summary-row">
+                                <span>Tarimas asignadas</span>
+                                <strong class="number-blue">3</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Pendientes</span>
+                                <strong class="number-orange">2</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-primary confirm-button">
+                    Confirmar embarque
+                </button>
+            </section>

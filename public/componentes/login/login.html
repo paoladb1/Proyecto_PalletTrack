@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PalletTrack</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- INICIO DE SESIÓN -->
+    <section id="login" class="login-page">
+        <div class="login-card">
+            <div class="login-logo">PT</div>
+            <h1>PalletTrack</h1>
+            <p class="login-subtitle">Sistema de gestión de inventarios</p>
+            <h2>Bienvenido</h2>
+            <label for="login-correo">Correo electrónico</label>
+            <input type="email" id="login-correo" placeholder="usuario@empresa.com">
+            <label for="login-password">Contraseña</label>
+            <input type="password" id="login-password" placeholder="Ingresa tu contraseña">
+            <div class="remember">
+                <input type="checkbox" id="login-recordar">
+                <span>Recordarme</span>
+            </div>
+
+            <small class="login-error" id="login-error" role="alert"></small>
+
+            <button class="btn-login" onclick="entrar()">
+                Iniciar sesión
+            </button>
+            <button class="btn-register" onclick="irRegistro()">
+                Registrarse
+            </button>
+            <p class="login-footer">
+                2026 PalletTrack. Todos los derechos reservados.
+            </p>
+        </div>
+    </section>

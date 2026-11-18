@@ -1,0 +1,79 @@
+ <section id="empresa" class="content-section oculto">
+
+                <div class="admin-welcome">
+                    <div>
+                        <span class="admin-tag">PANEL DE CONTROL</span>
+                        <h1>Administración</h1>
+                        <p>Gestiona la información general de PalletTrack.</p>
+                    </div>
+                    <div class="admin-icon"></div>
+                </div>
+                <div class="admin-layout">
+                    <div class="table-card admin-card">
+                        <div class="table-header">
+                            <div>
+                                <h3>Información de la empresa</h3>
+                                <p>Actualiza los datos generales de tu organización.</p>
+                            </div>
+                        </div>
+                        <form id="form-empresa" onsubmit="guardarEmpresa(event)">
+                            <div class="admin-form-grid">
+                                <div class="admin-field">
+                                    <label for="empresa-nombre">Nombre de la empresa</label>
+                                    <input type="text" id="empresa-nombre"
+                                        value="EmpresaArcosS1"
+                                        placeholder="Nombre de la empresa" required>
+                                </div>
+                                <div class="admin-field">
+                                    <label for="empresa-rfc">RFC</label>
+                                    <input type="text" id="empresa-rfc"
+                                        placeholder="Ingresa el RFC">
+                                </div>
+                                <div class="admin-field">
+                                    <label for="empresa-correo">Correo electrónico</label>
+                                    <input type="email" id="empresa-correo"
+                                        placeholder="empresa@correo.com">
+                                </div>
+                                <div class="admin-field">
+                                    <label for="empresa-telefono">Teléfono</label>
+                                    <input type="tel" id="empresa-telefono"
+                                        placeholder="Ingresa el teléfono">
+                                </div>
+                                <div class="admin-field full-width">
+                                    <label for="empresa-direccion">Dirección</label>
+                                    <input type="text" id="empresa-direccion"
+                                        placeholder="Ingresa la dirección">
+                                </div>
+                            </div>
+                            <div class="admin-form-footer">
+                                <button type="reset" class="admin-btn-cancel">
+                                    Cancelar
+                                </button>
+                                <button type="submit" class="admin-btn-save">
+                                    Guardar cambios
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="table-card admin-side-card">
+
+                        <div class="admin-side-icon"></div>
+
+                        <h3>Seguridad y acceso</h3>
+
+                        <p>Administra la información general de tu organización desde este apartado </p>
+                        <div class="admin-info-row">
+                            <span>Estado del sistema</span>
+                            <strong class="status-active">Activo</strong>
+                        </div>
+                        <div class="admin-info-row">
+                            <span>Tipo de cuenta</span>
+                            <strong>Administrador</strong>
+                        </div>
+                        <div class="admin-info-row">
+                            <span>Plataforma</span>
+                            <strong>PalletTrack</strong>
+                        </div>
+                    </div>
+                </div>
+            </section>

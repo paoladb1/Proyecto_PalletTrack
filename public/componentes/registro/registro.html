@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <section id="registro" class="login-page oculto">
+        <div class="login-card register-card">
+            <div class="login-logo">PT</div>
+            <h1>PalletTrack</h1>
+            <p class="login-subtitle">Sistema de gestión de inventarios</p>
+
+            <h2>Crear cuenta</h2>
+
+            <form id="form-registro" onsubmit="registrarUsuario(event)" novalidate>
+
+                <div class="reg-field">
+                    <label for="reg-empresa">Nombre de la empresa</label>
+                    <input type="text" id="reg-empresa" placeholder="Ej. EmpresaArcosS1" autocomplete="organization">
+                    <small class="reg-error" id="error-empresa"></small>
+                </div>
+
+                <div class="reg-field">
+                    <label for="reg-nombre">Nombre completo</label>
+                    <input type="text" id="reg-nombre" placeholder="Ingresa tu nombre" autocomplete="name">
+                    <small class="reg-error" id="error-nombre"></small>
+                </div>
+
+                <div class="reg-field">
+                    <label for="reg-correo">Correo electrónico</label>
+                    <input type="email" id="reg-correo" placeholder="usuario@empresa.com" autocomplete="email">
+                    <small class="reg-error" id="error-correo"></small>
+                </div>
+
+                <div class="reg-row">
+                    <div class="reg-field">
+                        <label for="reg-password">Contraseña</label>
+                        <input type="password" id="reg-password" placeholder="Mínimo 8 caracteres" autocomplete="new-password">
+                        <small class="reg-error" id="error-password"></small>
+                    </div>
+                    <div class="reg-field">
+                        <label for="reg-confirmar">Confirmar contraseña</label>
+                        <input type="password" id="reg-confirmar" placeholder="Repite la contraseña" autocomplete="new-password">
+                        <small class="reg-error" id="error-confirmar"></small>
+                    </div>
+                </div>
+
+                <div class="remember">
+                    <input type="checkbox" id="reg-terminos">
+                    <span>Acepto los términos y condiciones</span>
+                </div>
+                <small class="reg-error" id="error-terminos"></small>
+
+                <button type="submit" class="btn-login">Crear cuenta</button>
+                <button type="button" class="btn-register" onclick="volverLogin()">Ya tengo cuenta</button>
+            </form>
+
+            <p id="reg-mensaje" class="reg-mensaje oculto" role="status"></p>
+
+            <p class="login-footer">
+                2026 PalletTrack. Todos los derechos reservados.
+            </p>
+        </div>
+    </section>

@@ -147,7 +147,15 @@ function cerrarSesion() {
     document.getElementById("login").classList.remove("oculto");
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+function alCargarDOM(callback) {
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", callback, { once: true });
+    } else {
+        callback();
+    }
+}
+
+alCargarDOM(function() {
     const sesion = sessionStorage.getItem("sesion") || localStorage.getItem("sesion");
     if (sesion) {
         const usuario = JSON.parse(sesion);
@@ -352,4 +360,4 @@ function filtrarStock() {
         "Mostrando " + filas.length + " de " + stockAlmacenes.length + " productos";
 }
 
-document.addEventListener("DOMContentLoaded", filtrarStock);
+alCargarDOM(filtrarStock);
