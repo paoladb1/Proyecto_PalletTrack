@@ -1,0 +1,110 @@
+/* ADAPTACIÓN A PANTALLAS */
+
+@media (max-width: 1100px) {
+
+    .sidebar {
+        width: 220px;
+        min-width: 220px;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dispatch-grid,
+    .telemetry-grid,
+    .admin-layout {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .system-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: 0;
+        padding: 18px;
+    }
+
+    .brand {
+        margin-bottom: 20px;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 17px;
+    }
+
+    .topbar-user {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .profile-dropdown {
+        right: 0;
+        width: 210px;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    .login-card {
+        padding: 27px;
+    }
+
+    .page-heading h1 {
+        font-size: 21px;
+    }
+
+    .dispatch-filters,
+    .telemetry-filters {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-welcome {
+        padding: 22px;
+    }
+
+    .admin-welcome h1 {
+        font-size: 23px;
+    }
+
+    .admin-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 27px;
+    }
+
+    .admin-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-field.full-width {
+        grid-column: auto;
+    }
+
+    .admin-form-footer {
+        flex-direction: column;
+    }
+
+    .admin-btn-save,
+    .admin-btn-cancel {
+        width: 100%;
+    }
+
+}

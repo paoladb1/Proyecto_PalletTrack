@@ -1,0 +1,127 @@
+/* =====================================
+   PERFIL Y MENÚ DESPLEGABLE
+===================================== */
+
+.topbar-user {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.profile-menu {
+    position: relative;
+}
+
+.profile-trigger {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    border: 1px solid #e7edf4;
+    border-radius: 10px;
+    background: white;
+    color: #26364a;
+    transition: 0.2s;
+}
+
+.profile-trigger:hover {
+    background: #f3f8fd;
+    border-color: #c9dff2;
+}
+
+.profile-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #dceeff;
+    color: #1674bd;
+    font-weight: bold;
+}
+
+.profile-name {
+    text-align: left;
+}
+
+.profile-name strong {
+    display: block;
+    color: #153b63;
+    font-size: 13px;
+}
+
+.profile-name small {
+    display: block;
+    margin-top: 4px;
+    color: #8491a1;
+    font-size: 11px;
+}
+
+.profile-arrow {
+    margin-left: 8px;
+    color: #52677d;
+    font-size: 19px;
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    z-index: 1000;
+    width: 225px;
+    padding: 8px;
+    border: 1px solid #e5ebf2;
+    border-radius: 11px;
+    background: white;
+    box-shadow: 0 10px 30px #102b4e20;
+    animation: aparecerMenu 0.18s ease;
+}
+
+.profile-dropdown button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: white;
+    color: #40546a;
+    text-align: left;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.profile-dropdown button:hover {
+    background: #edf6ff;
+    color: #1674bd;
+}
+
+.profile-dropdown button span {
+    font-size: 17px;
+}
+
+.dropdown-divider {
+    height: 1px;
+    margin: 6px 0;
+    background: #e9eef4;
+}
+
+.profile-dropdown .dropdown-logout:hover {
+    background: #fff0f0;
+    color: #d13d3d;
+}
+
+@keyframes aparecerMenu {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

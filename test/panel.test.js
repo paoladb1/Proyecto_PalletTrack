@@ -4,7 +4,22 @@ const path = require("node:path");
 const vm = require("node:vm");
 const { test } = require("node:test");
 
-const appSource = fs.readFileSync(path.join(__dirname, "..", "public", "app.js"), "utf8");
+const scriptPaths = [
+    "componentes/datos/datos.js",
+    "componentes/inicio/inicio.js",
+    "componentes/productos/producto.js",
+    "componentes/ubicaciones/ubicacion.js",
+    "componentes/despachos/despacho.js",
+    "componentes/consultas/consulta.js",
+    "componentes/telemetria/telemetria.js",
+    "componentes/administrador/administrador.js",
+    "componentes/registro/registro.js",
+    "componentes/login/login.js",
+    "app.js"
+];
+const appSources = scriptPaths.map(scriptPath =>
+    fs.readFileSync(path.join(__dirname, "..", "public", scriptPath), "utf8")
+);
 const valoresIniciales = {
     "orden-cliente": "PED-2026-018",
     "estado-despacho": "todos",
@@ -82,7 +97,7 @@ function loadApp() {
     };
 
     vm.createContext(context);
-    vm.runInContext(appSource, context);
+    appSources.forEach(source => vm.runInContext(source, context));
 
     return {
         context,

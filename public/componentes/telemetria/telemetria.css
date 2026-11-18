@@ -1,0 +1,59 @@
+/* TELEMETRÍA */
+
+.telemetry-filters {
+    grid-template-columns: 1fr 1fr auto;
+    align-items: end;
+}
+
+.telemetry-grid {
+    display: grid;
+    grid-template-columns: 1.5fr .9fr;
+    gap: 20px;
+}
+
+.telemetry-grid table {
+    min-width: 480px;
+}
+
+.alerts-card {
+    height: fit-content;
+}
+
+.alert-item {
+    margin-bottom: 12px;
+    padding: 15px;
+    border-radius: 9px;
+}
+
+.alert-warning {
+    border: 1px solid #ffe1bd;
+    background: #fff4e8;
+}
+
+.alert-info {
+    border: 1px solid #d8eaff;
+    background: #eff7ff;
+}
+
+.alert-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.alert-heading strong {
+    color: #153b63;
+    font-size: 11px;
+}
+
+.alert-heading small {
+    color: #8491a1;
+    font-size: 10px;
+}
+
+.alert-item p {
+    color: #52677d;
+    font-size: 12px;
+    line-height: 1.6;
+}

@@ -1,0 +1,163 @@
+/* LOGIN */
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #102b4e, #1674bd);
+}
+
+.login-card {
+    width: 430px;
+    max-width: 100%;
+    padding: 40px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px #071c3540;
+}
+
+.login-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1674bd;
+    color: white;
+    font-weight: bold;
+}
+
+.login-logo {
+    width: 65px;
+    height: 65px;
+    margin: auto;
+    border-radius: 14px;
+    font-size: 23px;
+}
+
+.login-card h1 {
+    margin: 15px 0;
+    text-align: center;
+    color: #153b63;
+}
+
+.login-card h2 {
+    margin-top: 25px;
+    color: #153b63;
+    font-size: 20px;
+}
+
+.login-subtitle,
+.login-footer {
+    text-align: center;
+    color: #8491a1;
+}
+
+.login-subtitle {
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.login-card label {
+    display: block;
+    margin: 18px 0 8px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.login-card input[type="email"],
+.login-card input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dce3eb;
+    border-radius: 7px;
+    outline: none;
+}
+
+.remember {
+    display: flex;
+    gap: 9px;
+    align-items: center;
+    margin: 20px 0;
+    font-size: 13px;
+}
+
+.login-footer {
+    margin-top: 28px;
+    font-size: 11px;
+}
+
+
+/* ===== Botón secundario (sirve para "Registrarse" en index.html y "Ya tengo cuenta") ===== */
+.btn-register {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    background: #ffffff;
+    color: #1573bd;
+    border: 1.5px solid #1573bd;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-register:hover {
+    background: #eaf4fc;
+}
+
+.btn-register:focus-visible {
+    outline: 3px solid #9ccbee;
+    outline-offset: 2px;
+}
+
+/* ===== Pantalla de registro ===== */
+.register-card {
+    max-width: 460px;
+    width: 100%;
+}
+
+.reg-field {
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.reg-field label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.reg-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.reg-field input.invalido {
+    border-color: #d64545;
+}
+
+.reg-error {
+    display: block;
+    min-height: 16px;
+    margin-top: 4px;
+    color: #d64545;
+    font-size: 12px;
+}
+
+.reg-mensaje {
+    margin-top: 14px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: #e6f6ec;
+    color: #1d7a45;
+    font-size: 14px;
+    text-align: center;
+}
+
+@media (max-width: 520px) {
+    .reg-row {
+        grid-template-columns: 1fr;
+    }
+}
