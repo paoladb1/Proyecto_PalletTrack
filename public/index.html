@@ -3,45 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PalletTrack | Gestión de almacén</title>
+    <title>PalletTrack</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- PANTALLA 1: LOGIN -->
+    <!-- Inicio de sesión -->
     <section id="login" class="login-page">
         <div class="login-card">
             <div class="login-logo">PT</div>
             <h1>PalletTrack</h1>
             <p class="login-subtitle">Sistema de gestión de inventarios</p>
 
-            <div class="login-welcome">
-                <h2>Bienvenido</h2>
+            <h2>Bienvenido</h2>
+
+            <label>Correo electrónico</label>
+            <input type="email" placeholder="usuario@empresa.com">
+
+            <label>Contraseña</label>
+            <input type="password" placeholder="Ingresa tu contraseña">
+
+            <div class="remember">
+                <input type="checkbox">
+                <span>Recordarme</span>
             </div>
 
-            <div>
-                <label>Correo electrónico</label>
-                <input type="email" placeholder="usuario@empresa.com">
-
-                <label>Contraseña</label>
-                <input type="password" placeholder="Ingresa tu contraseña">
-
-                <div class="remember">
-                    <input type="checkbox">
-                    <span>Recordarme</span>
-                </div>
-
-                <button type="button" class="btn-login" onclick="entrar()">Iniciar sesión</button>
-            </div>
-
-            <p class="login-footer"> 2026 PalletTrack. Todos los derechos reservados.</p>
+            <button class="btn-login" onclick="entrar()">Iniciar sesión</button>
+            <p class="login-footer">2026 PalletTrack. Todos los derechos reservados.</p>
         </div>
     </section>
 
-    <!-- ESTRUCTURA DEL SISTEMA -->
+    <!-- Sistema principal -->
     <div id="sistema" class="system-layout oculto">
-        
-        <!-- MENÚ LATERAL -->
+
+        <!-- Menú lateral -->
         <aside class="sidebar">
             <div class="brand">
                 <div class="brand-logo">PT</div>
@@ -53,69 +48,81 @@
 
             <p class="menu-label">MENÚ PRINCIPAL</p>
 
-            <button type="button" class="menu-item active" onclick="mostrarPantalla('productos', this)">
-                <span>▦</span> Catálogo de productos
+            <button class="menu-item active" onclick="mostrarPantalla('productos', this)">
+                 Catálogo de productos
             </button>
-            <button type="button" class="menu-item" onclick="mostrarPantalla('ubicaciones', this)">
-                <span>⌖</span> Catálogo de ubicaciones
+
+            <button class="menu-item" onclick="mostrarPantalla('ubicaciones', this)">
+                Catálogo de ubicaciones
+            </button>
+
+            <button class="menu-item" onclick="mostrarPantalla('despachos', this)">
+                 Despachos QR
+            </button>
+
+            <button class="menu-item" onclick="mostrarPantalla('telemetria', this)">
+                Telemetría y auditoría
             </button>
 
             <div class="sidebar-bottom">
                 <div class="profile">
-                    <div class="profile-avatar">AP</div>
+                    <div class="profile-avatar">AP
+                    </div>
                     <div>
-                        <strong>Andrea Paola</strong>
+                        <strong>EmpresaArcosS1</strong>
                         <small>Administrador</small>
                     </div>
                 </div>
-                <button type="button" class="logout" onclick="cerrarSesion()"> Cerrar sesión</button>
+                <button class="logout" onclick="cerrarSesion()">Cerrar sesión</button>
             </div>
         </aside>
 
-        <!-- CONTENIDO PRINCIPAL -->
+        <!-- Contenido principal -->
         <main class="main-content">
-            
-            <!-- BARRA SUPERIOR -->
+
             <header class="topbar">
                 <div>
                     <h2 id="titulo-pagina">Catálogo de productos</h2>
                     <p>Panel de administración PalletTrack</p>
                 </div>
+
                 <div class="topbar-user">
                     <div class="notification"></div>
                     <div class="profile-avatar">AP</div>
                     <div>
-                        <strong>Andrea Paola</strong>
+                        <strong>EmpresaArcosS1</strong>
                         <small>Administrador</small>
                     </div>
                 </div>
             </header>
 
-            <!-- PANTALLA 2: PRODUCTOS -->
+            <!-- Pantalla de productos -->
             <section id="productos" class="content-section">
                 <div class="page-heading">
                     <div>
                         <h1>Catálogo de productos</h1>
                         <p>Consulta y administración de productos registrados.</p>
                     </div>
-                    <button type="button" class="btn-primary">+ Agregar producto</button>
+                    <button class="btn-primary">Agregar producto</button>
                 </div>
 
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <div class="stat-icon blue">▦</div>
+                        <div class="stat-icon blue"></div>
                         <p>Total de productos</p>
                         <h2>248</h2>
                         <small>Productos registrados</small>
                     </div>
+
                     <div class="stat-card">
-                        <div class="stat-icon green">✓</div>
+                        <div class="stat-icon green"></div>
                         <p>Productos disponibles</p>
                         <h2>215</h2>
                         <small>En inventario</small>
                     </div>
+
                     <div class="stat-card">
-                        <div class="stat-icon orange">▤</div>
+                        <div class="stat-icon orange"></div>
                         <p>Unidades registradas</p>
                         <h2>765</h2>
                         <small>Existencias totales</small>
@@ -128,7 +135,7 @@
                             <h3>Lista de productos</h3>
                             <p>Productos registrados en el sistema</p>
                         </div>
-                        <input type="text" placeholder="Buscar producto..." class="search-input">
+                        <input class="search-input" placeholder="Buscar producto...">
                     </div>
 
                     <div class="table-responsive">
@@ -137,7 +144,7 @@
                                 <tr>
                                     <th>SKU</th>
                                     <th>Nombre del producto</th>
-                                    <th>Unidad de medida</th>
+                                    <th>Unidad</th>
                                     <th>Stock</th>
                                     <th>Estado</th>
                                     <th>Acciones</th>
@@ -171,35 +178,37 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="table-footer">Mostrando 3 productos de 248</div>
+                    <div class="table-footer">Mostrando 3 productos de 10</div>
                 </div>
             </section>
 
-            <!-- PANTALLA 3: UBICACIONES -->
+            <!-- Pantalla de ubicaciones -->
             <section id="ubicaciones" class="content-section oculto">
                 <div class="page-heading">
                     <div>
                         <h1>Catálogo de ubicaciones</h1>
                         <p>Administración de zonas, racks y posiciones del almacén.</p>
                     </div>
-                    <button type="button" class="btn-primary">+ Agregar ubicación</button>
+                    <button class="btn-primary">Agregar ubicación</button>
                 </div>
 
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <div class="stat-icon blue">⌖</div>
+                        <div class="stat-icon blue"></div>
                         <p>Total de ubicaciones</p>
                         <h2>120</h2>
                         <small>Posiciones registradas</small>
                     </div>
+
                     <div class="stat-card">
-                        <div class="stat-icon green">▦</div>
+                        <div class="stat-icon green"></div>
                         <p>Zonas disponibles</p>
                         <h2>3</h2>
                         <small>Áreas de almacenamiento</small>
                     </div>
+
                     <div class="stat-card">
-                        <div class="stat-icon orange">▤</div>
+                        <div class="stat-icon orange"></div>
                         <p>Racks registrados</p>
                         <h2>18</h2>
                         <small>Espacios de almacenamiento</small>
@@ -212,14 +221,14 @@
                             <h3>Ubicaciones registradas</h3>
                             <p>Listado de posiciones del almacén</p>
                         </div>
-                        <input type="text" placeholder="Buscar ubicación..." class="search-input">
+                        <input class="search-input" placeholder="Buscar ubicación...">
                     </div>
 
                     <div class="table-responsive">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Código de posición</th>
+                                    <th>Código</th>
                                     <th>Zona</th>
                                     <th>Rack</th>
                                     <th>Nivel</th>
@@ -255,48 +264,206 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="table-footer">Mostrando 3 ubicaciones de 120</div>
+                    <div class="table-footer">Mostrando 3 ubicaciones de 10</div>
+                </div>
+            </section>
+
+            <!-- Pantalla de despachos QR -->
+            <section id="despachos" class="content-section oculto">
+                <div class="page-heading">
+                    <div>
+                        <h1>Asignación y despacho de tarimas</h1>
+                        <p>Confirma el embarque mediante código QR y evita dobles asignaciones.</p>
+                    </div>
+                    <span class="badge disponible">● Despacho activo</span>
+                </div>
+
+                <div class="dispatch-filters">
+                    <div>
+                        <label for="orden-cliente">Orden de cliente</label>
+                        <select id="orden-cliente">
+                            <option>PED-2026-018</option>
+                            <option>PED-2026-019</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="estado-despacho">Estado del despacho</label>
+                        <select id="estado-despacho">
+                            <option>Despacho activo</option>
+                            <option>Pendiente</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="dispatch-grid">
+                    <div class="table-card scan-card">
+                        <div class="section-title">
+                            <span class="stat-icon blue"></span>
+                            <h3>Escaneo de código QR</h3>
+                        </div>
+
+                        <div class="qr-area">
+                            <div class="qr-icon"></div>
+                            <h3>Escanear código</h3>
+                            <p>Coloca el código QR de la tarima 
+                            </p>
+                        </div>
+
+                        <div class="pallet-info">
+                            <div class="section-title">
+                                <h3>PAL-2026-001</h3>
+                                <span class="badge disponible"> Disponible</span>
+                            </div>
+                            <p><strong>Lote:</strong> LOT-2026-05</p>
+                            <p><strong>Producto:</strong> Caja de producto terminado</p>
+                            <p><strong>Ubicación:</strong> A-02 / Rack 04</p>
+                        </div>
+                    </div>
+
+                    <div class="right-cards">
+                        <div class="table-card validation-card">
+                            <div class="section-title">
+                                <span class="stat-icon orange"></span>
+                                <h3>Control de concurrencia</h3>
+                            </div>
+                            <div class="success-icon"></div>
+                            <h3 class="center">No se detectaron conflictos.</h3>
+                            <p class="center">La tarima está disponible</p>
+                        </div>
+
+                        <div class="table-card summary-card">
+                            <div class="section-title">
+                                <h3>Resumen del embarque</h3>
+                            </div>
+                            <div class="summary-row">
+                                <span>Tarimas asignadas</span>
+                                <strong class="number-blue">3</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Pendientes</span>
+                                <strong class="number-orange">2</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-primary confirm-button">
+                    Confirmar embarque
+                </button>
+            </section>
+
+            <!-- Pantalla de telemetría -->
+            <section id="telemetria" class="content-section oculto">
+                <div class="page-heading">
+                    <div>
+                        <h1>Monitor de telemetría y eventos</h1>
+                        <p>Supervisa escaneos QR y registra incidencias en tiempo real.</p>
+                    </div>
+                    <span class="badge disponible">En línea</span>
+                </div>
+
+                <div class="telemetry-filters">
+                    <div>
+                        <label for="filtro-escaner">Escáner</label>
+                        <select id="filtro-escaner">
+                            <option>Todos</option>
+                            <option>SCANNER-01</option>
+                            <option>SCANNER-02</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="rango-tiempo">Rango de tiempo</label>
+                        <select id="rango-tiempo">
+                            <option>Últimas 24 horas</option>
+                            <option>Últimos 7 días</option>
+                        </select>
+                    </div>
+                    <button class="btn-primary">Filtrar</button>
+                </div>
+
+                <div class="telemetry-grid">
+                    <div class="table-card">
+                        <div class="table-header">
+                            <div>
+                                <h3>Lecturas QR </h3>
+                                <p>Registro de actividad de los escáneres.</p>
+                            </div>
+                            <span class="badge disponible">En línea</span>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Escáner</th>
+                                        <th>Código QR</th>
+                                        <th>Fecha y hora</th>
+                                        <th>Batería</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>SCANNER-01</td>
+                                        <td>PAL-2026-001</td>
+                                        <td>10:30:00</td><td>90%</td>
+                                    </tr>
+                                    <tr><td>SCANNER-02</td>
+                                        <td>PAL-2026-002</td>
+                                        <td>10:28:42</td><td>76%</td>
+                                    </tr>
+                                    <tr><td>SCANNER-01</td>
+                                        <td>PAL-2026-003</td>
+                                        <td>10:26:15</td>
+                                        <td>88%</td>
+                                    </tr>
+                                    <tr><td>SCANNER-02</td><
+                                        td>PAL-2026-004</td>
+                                        <td>10:24:10</td>
+                                        <td>65%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="table-card alerts-card">
+                        <div class="table-header">
+                            <h3>Alertas y auditorías</h3>
+                        </div>
+
+                        <div class="alert-item alert-warning">
+                            <div class="alert-heading">
+                                <strong>TARIMA_DAÑADA</strong>
+                                <small>10:27 AM</small>
+                            </div>
+                            <p><strong>Lote:</strong> LOT-2026-05</p>
+                            <p>Empaque roto al descargar del tráiler.</p>
+                        </div>
+
+                        <div class="alert-item alert-info">
+                            <div class="alert-heading">
+                                <strong>ESCANEO_REGISTRADO</strong>
+                                <small>10:26 AM</small>
+                            </div>
+                            <p>Código: PAL-2026-001</p>
+                        </div>
+
+                        <div class="alert-item alert-warning">
+                            <div class="alert-heading">
+                                <strong>BATERÍA_BAJA</strong>
+                                <small>10:25 AM</small>
+                            </div>
+                            <p>Equipo: SCANNER-02</p>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <footer class="footer">
-                PalletTrack  2026 | Sistema de gestión de almacenes
+                PalletTrack 2026 | Sistema de gestión de almacenes
             </footer>
         </main>
     </div>
 
-    <script>
-        function entrar() {
-            document.getElementById("login").classList.add("oculto");
-            document.getElementById("sistema").classList.remove("oculto");
-            mostrarPantalla("productos", document.querySelector(".menu-item"));
-        }
-
-        function mostrarPantalla(nombre, boton) {
-            document.querySelectorAll(".content-section").forEach(pantalla => {
-                pantalla.classList.add("oculto");
-            });
-            document.getElementById(nombre).classList.remove("oculto");
-
-            document.querySelectorAll(".menu-item").forEach(menu => {
-                menu.classList.remove("active");
-            });
-
-            if (boton) {
-                boton.classList.add("active");
-            }
-
-            const titulos = {
-                productos: "Catálogo de productos",
-                ubicaciones: "Catálogo de ubicaciones"
-            };
-            document.getElementById("titulo-pagina").textContent = titulos[nombre] || "PalletTrack";
-        }
-
-        function cerrarSesion() {
-            document.getElementById("sistema").classList.add("oculto");
-            document.getElementById("login").classList.remove("oculto");
-        }
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>
