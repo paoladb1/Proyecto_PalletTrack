@@ -20,12 +20,13 @@ async function iniciarAplicacion() {
     try {
         await cargarComponentes(raiz);
 
-        const script = document.createElement("script");
-        script.src = "app.js";
-        script.onerror = () => {
-            throw new Error("No se pudo cargar app.js.");
-        };
-        document.body.appendChild(script);
+        await new Promise((resolve, reject) => {
+            const script = document.createElement("script");
+            script.src = "app.js";
+            script.onload = resolve;
+            script.onerror = () => reject(new Error("No se pudo cargar app.js."));
+            document.body.appendChild(script);
+        });
     } catch (error) {
         console.error("Error al iniciar PalletTrack:", error);
         raiz.textContent = "No se pudo cargar la aplicación. Recarga la página e inténtalo de nuevo.";

@@ -1117,3 +1117,100 @@ tbody tr:hover {
         grid-template-columns: 1fr;
     }
 }
+
+.catalog-form {
+    padding: 25px;
+    margin-bottom: 20px;
+    border: 1px solid #e8edf3;
+    border-radius: 13px;
+    background: white;
+    box-shadow: 0 4px 15px #1b35500a;
+}
+
+.catalog-form h3 {
+    margin-bottom: 20px;
+    color: #153b63;
+}
+
+.catalog-form .admin-field select {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #dce4ed;
+    border-radius: 8px;
+    background: #fbfcfe;
+    color: #26364a;
+}
+
+.catalog-actions {
+    display: flex;
+    gap: 7px;
+}
+
+.btn-small {
+    padding: 7px 10px;
+    border: 1px solid #c9dff2;
+    border-radius: 6px;
+    background: #f3f8fd;
+    color: #105b96;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.btn-small:hover {
+    background: #e2f1ff;
+}
+
+.dispatch-scan {
+    display: grid;
+    grid-template-columns: minmax(180px, 1fr) auto;
+    gap: 10px 15px;
+    align-items: end;
+    margin-bottom: 20px;
+}
+
+.dispatch-scan label,
+.dispatch-scan p {
+    grid-column: 1 / -1;
+}
+
+.dispatch-scan label {
+    margin-bottom: -5px;
+    color: #40546a;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.dispatch-scan p {
+    min-height: 18px;
+    color: #52677d;
+    font-size: 13px;
+}
+
+.confirm-button:disabled {
+    cursor: not-allowed;
+    opacity: .55;
+}
+
+.success-icon.validation-error {
+    background: #ffe4e4;
+    color: #d13d3d;
+}
+
+.dispatch-list {
+    margin-top: 20px;
+}
+
+@media (max-width: 650px) {
+    .dispatch-scan {
+        grid-template-columns: 1fr;
+    }
+
+    .dispatch-scan label,
+    .dispatch-scan p {
+        grid-column: auto;
+    }
+
+    .catalog-actions {
+        flex-direction: column;
+    }
+}

@@ -4,35 +4,68 @@
                         <h1>Catálogo de ubicaciones</h1>
                         <p>Administración de zonas, racks y posiciones del almacén</p>
                     </div>
-                    <button class="btn-primary">Agregar ubicación</button>
+                    <button class="btn-primary" type="button" onclick="mostrarFormularioUbicacion()">Agregar ubicación</button>
                 </div>
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-icon blue"></div>
                         <p>Total de ubicaciones</p>
-                        <h2>120</h2>
+                        <h2 id="ubicaciones-total">0</h2>
                         <small>Posiciones registradas</small>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon green"></div>
                         <p>Zonas disponibles</p>
-                        <h2>3</h2>
+                        <h2 id="ubicaciones-zonas">0</h2>
                         <small>Áreas de almacenamiento</small>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon orange"></div>
                         <p>Racks registrados</p>
-                        <h2>18</h2>
+                        <h2 id="ubicaciones-racks">0</h2>
                         <small>Espacios de almacenamiento</small>
                     </div>
                 </div>
+                <form id="form-ubicacion" class="catalog-form oculto" onsubmit="guardarUbicacion(event)">
+                    <h3 id="ubicacion-form-titulo">Agregar ubicación</h3>
+                    <div class="admin-form-grid">
+                        <div class="admin-field">
+                            <label for="ubicacion-codigo">Código</label>
+                            <input id="ubicacion-codigo" required>
+                        </div>
+                        <div class="admin-field">
+                            <label for="ubicacion-zona">Zona</label>
+                            <input id="ubicacion-zona" required>
+                        </div>
+                        <div class="admin-field">
+                            <label for="ubicacion-rack">Rack</label>
+                            <input id="ubicacion-rack" required>
+                        </div>
+                        <div class="admin-field">
+                            <label for="ubicacion-nivel">Nivel</label>
+                            <input id="ubicacion-nivel" required>
+                        </div>
+                        <div class="admin-field">
+                            <label for="ubicacion-estado">Estado</label>
+                            <select id="ubicacion-estado">
+                                <option>Disponible</option>
+                                <option>Ocupado</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="admin-form-footer">
+                        <button class="admin-btn-cancel" type="button" onclick="cancelarUbicacion()">Cancelar</button>
+                        <button class="admin-btn-save" type="submit">Guardar ubicación</button>
+                    </div>
+                </form>
                 <div class="table-card">
                     <div class="table-header">
                         <div>
                             <h3>Ubicaciones registradas</h3>
                             <p>Listado de posiciones del almacén</p>
                         </div>
-                        <input class="search-input" placeholder="Buscar ubicación...">
+                        <input id="ubicacion-buscar" class="search-input" placeholder="Buscar ubicación..."
+                            oninput="filtrarUbicaciones()">
                     </div>
                     <div class="table-responsive">
 
@@ -47,35 +80,10 @@
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>UBI-001</td>
-                                    <td>Zona A</td>
-                                    <td>Rack 01</td>
-                                    <td>Nivel 01</td>
-                                    <td><span class="badge disponible">Disponible</span></td>
-                                    <td>✎ &nbsp; ◉</td>
-                                </tr>
-                                <tr>
-                                    <td>UBI-002</td>
-                                    <td>Zona B</td>
-                                    <td>Rack 03</td>
-                                    <td>Nivel 02</td>
-                                    <td><span class="badge disponible">Disponible</span></td>
-                                    <td>✎ &nbsp; ◉</td>
-                                </tr>
-                                <tr>
-                                    <td>UBI-003</td>
-                                    <td>Zona C</td>
-                                    <td>Rack 04</td>
-                                    <td>Nivel 01</td>
-                                    <td><span class="badge ocupado">Ocupado</span></td>
-                                    <td>✎ &nbsp; ◉</td>
-                                </tr>
-                            </tbody>
+                            <tbody id="ubicaciones-tabla"></tbody>
                         </table>
 
                     </div>
-                    <div class="table-footer">Mostrando 3 ubicaciones de 10</div>
+                    <div class="table-footer" id="ubicaciones-pie"></div>
                 </div>
             </section>

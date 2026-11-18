@@ -2,9 +2,9 @@
                 <div class="page-heading">
                     <div>
                         <h1>Monitor de telemetría y eventos</h1>
-                        <p>Supervisa escaneos QR y registra incidencias en tiempo real.</p>
+                        <p>Consulta eventos de ejemplo y despachos registrados en este navegador.</p>
                     </div>
-                    <span class="badge disponible">En línea</span>
+                    <span class="badge disponible" id="telemetria-estado">Prototipo local</span>
                 </div>
                 <div class="telemetry-filters">
                     <div>
@@ -20,18 +20,19 @@
                         <select id="rango-tiempo">
                             <option>Últimas 24 horas</option>
                             <option>Últimos 7 días</option>
+                            <option>Todo el historial</option>
                         </select>
                     </div>
-                    <button class="btn-primary">Filtrar</button>
+                    <button class="btn-primary" type="button" onclick="filtrarTelemetria()">Filtrar</button>
                 </div>
                 <div class="telemetry-grid">
                     <div class="table-card">
                         <div class="table-header">
                             <div>
                                 <h3>Lecturas QR</h3>
-                                <p>Registro de actividad de los escáneres</p>
+                                <p id="telemetria-resumen">Registro de actividad de los escáneres</p>
                             </div>
-                            <span class="badge disponible">En línea</span>
+                            <span class="badge disponible">Datos locales</span>
                         </div>
                         <div class="table-responsive">
                             <table>
@@ -43,26 +44,7 @@
                                         <th>Batería</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>SCANNER-01</td>
-                                        <td>PAL-2026-001</td>
-                                        <td>20/02/26 10:30:00</td>
-                                        <td>90%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>SCANNER-02</td>
-                                        <td>PAL-2026-002</td>
-                                        <td>11/07/26 10:28:42</td>
-                                        <td>76%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>SCANNER-01</td>
-                                        <td>PAL-2026-003</td>
-                                        <td>22/02/26 10:26:15</td>
-                                        <td>88%</td>
-                                    </tr>
-                                </tbody>
+                                <tbody id="telemetria-tabla"></tbody>
                             </table>
                         </div>
                     </div>
@@ -70,28 +52,7 @@
                         <div class="table-header">
                             <h3>Alertas y auditorías</h3>
                         </div>
-                        <div class="alert-item alert-warning">
-                            <div class="alert-heading">
-                                <strong>TARIMA_DAÑADA</strong>
-                                <small>10:27 AM</small>
-                            </div>
-                            <p><strong>Lote:</strong> LOT-2026-05</p>
-                            <p>Empaque roto al descargar del tráiler.</p>
-
-                        </div>
-                        <div class="alert-item alert-info">
-                            <div class="alert-heading">
-                                <strong>ESCANEO_REGISTRADO</strong>
-                                <small>10:26 AM</small>
-                            </div>
-                            <p>Código: PAL-2026-001</p>
-                        </div>
-                        <div class="alert-item alert-warning">
-                            <div class="alert-heading">
-                                <strong>BATERÍA_BAJA</strong>
-                                <small>10:25 AM</small>
-                            </div>
-                        </div>
+                        <div id="telemetria-alertas"></div>
                     </div>
                 </div>
             </section>

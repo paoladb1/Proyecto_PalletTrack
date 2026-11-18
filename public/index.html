@@ -1,90 +1,103 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro | PalletTrack</title>
+    <title>PalletTrack | Gestión de inventario</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    
-    <div id="sistema" class="system-layout oculto">
-        <aside class="sidebar">
-            <div class="brand" onclick="mostrarPantalla('inicio', null)" style="cursor: pointer;">
-                <div class="brand-logo">PT</div>
-                <div>
-                    <h2>PalletTrack</h2>
-                    <small>SISTEMA DE INVENTARIO</small>
-                </div>
-            </div>
-            <p class="menu-label">MENÚ PRINCIPAL</p>
-            <button class="menu-item" onclick="mostrarPantalla('productos', this)">
-                <span></span>
-                Catálogo de productos
-            </button>
-            <button class="menu-item" onclick="mostrarPantalla('ubicaciones', this)">
-                <span></span>
-                Catálogo de ubicaciones
-            </button>
-            <button class="menu-item" onclick="mostrarPantalla('despachos', this)">
-                <span></span>
-                Despachos QR
-            </button>
-            <button class="menu-item" onclick="mostrarPantalla('telemetria', this)">
-                <span></span>
-                Telemetría y auditoría
-            </button>
-            <button class="menu-item" onclick="mostrarPantalla('consultas', this)">
-                <span></span>
-                Consultas
-            </button>
-        </aside>
-        <main class="main-content">
-            <header class="topbar">
-                <div>
-                    <h2 id="titulo-pagina">Inicio del administrador</h2>
-                    <p>Panel de administración PalletTrack</p>
-                </div>
-                <!-- PERFIL DEL ADMINISTRADOR -->
-                <div class="topbar-user">
-                    <div class="profile-menu">
-                        <button class="profile-trigger" onclick="togglePerfil()">
-                            <div class="profile-avatar">AP</div>
+    <div id="app">
+        <div data-componente="login/login"></div>
+        <div data-componente="registro/registro"></div>
 
-                            <div class="profile-name">
-                                <strong>EmpresaArcosS1</strong>
-                                <small>Administrador</small>
-                            </div>
-                            <span class="profile-arrow"></span>
-
-                        </button>
-                        <div id="menu-perfil" class="profile-dropdown oculto">
-                            <button onclick="irInicio()">
-                                <span></span>
-                                Inicio
-                            </button>
-                            <button onclick="irAdministracion()">
-                                <span></span>
-                                Administración
-                            </button>
-                            <div class="dropdown-divider"></div>
-                            <button class="dropdown-logout" onclick="cerrarSesion()">
-                                <span></span>
-                                Cerrar sesión
-                            </button>
-                        </div>
+        <div id="sistema" class="system-layout oculto">
+            <aside class="sidebar">
+                <div class="brand" onclick="mostrarPantalla('inicio', null)" style="cursor: pointer;">
+                    <div class="brand-logo">PT</div>
+                    <div>
+                        <h2>PalletTrack</h2>
+                        <small>SISTEMA DE INVENTARIO</small>
                     </div>
                 </div>
-            </header>
+                <p class="menu-label">MENÚ PRINCIPAL</p>
+                <button class="menu-item" onclick="mostrarPantalla('inicio', this)">
+                    <span></span>
+                    Inicio
+                </button>
+                <button class="menu-item" onclick="mostrarPantalla('productos', this)">
+                    <span></span>
+                    Catálogo de productos
+                </button>
+                <button class="menu-item" onclick="mostrarPantalla('ubicaciones', this)">
+                    <span></span>
+                    Catálogo de ubicaciones
+                </button>
+                <button class="menu-item" onclick="mostrarPantalla('despachos', this)">
+                    <span></span>
+                    Despachos QR
+                </button>
+                <button class="menu-item" onclick="mostrarPantalla('telemetria', this)">
+                    <span></span>
+                    Telemetría y auditoría
+                </button>
+                <button class="menu-item" onclick="mostrarPantalla('consultas', this)">
+                    <span></span>
+                    Consultas
+                </button>
+            </aside>
+            <main class="main-content">
+                <header class="topbar">
+                    <div>
+                        <h2 id="titulo-pagina">Inicio del administrador</h2>
+                        <p>Panel de administración PalletTrack</p>
+                    </div>
+                    <div class="topbar-user">
+                        <div class="profile-menu">
+                            <button class="profile-trigger" onclick="togglePerfil()">
+                                <div class="profile-avatar">AP</div>
+                                <div class="profile-name">
+                                    <strong>EmpresaArcosS1</strong>
+                                    <small>Administrador</small>
+                                </div>
+                                <span class="profile-arrow"></span>
+                            </button>
+                            <div id="menu-perfil" class="profile-dropdown oculto">
+                                <button onclick="irInicio()">
+                                    <span></span>
+                                    Inicio
+                                </button>
+                                <button onclick="irAdministracion()">
+                                    <span></span>
+                                    Administración
+                                </button>
+                                <div class="dropdown-divider"></div>
+                                <button class="dropdown-logout" onclick="cerrarSesion()">
+                                    <span></span>
+                                    Cerrar sesión
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </header>
 
-            <footer class="footer">
-                PalletTrack 2026 | Sistema de gestión de almacenes
-            </footer>
-        </main>
+                <div data-componente="inicio/inicio"></div>
+                <div data-componente="administrador/administrador"></div>
+                <div data-componente="productos/producto"></div>
+                <div data-componente="ubicaciones/ubicacion"></div>
+                <div data-componente="despachos/despacho"></div>
+                <div data-componente="consultas/consulta"></div>
+                <div data-componente="telemetria/telemetria"></div>
+
+                <footer class="footer">
+                    PalletTrack 2026 | Sistema de gestión de almacenes
+                </footer>
+            </main>
+        </div>
     </div>
-    <script src="app.js"></script>
+    <script src="componentes.js"></script>
 </body>
+
 </html>

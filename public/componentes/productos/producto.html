@@ -4,41 +4,71 @@
                         <h1>Catálogo de productos</h1>
                         <p>Consulta y administración de productos registrados.</p>
                     </div>
-                    <button class="btn-primary">Agregar producto</button>
+                    <button class="btn-primary" type="button" onclick="mostrarFormularioProducto()">Agregar producto</button>
                 </div>
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <div class="stat-icon blue">
-                            <icon>📦</icon></div>
+                        <div class="stat-icon blue">📦</div>
                         <p>Total de productos</p>
-                        <h2>248</h2>
+                        <h2 id="productos-total">0</h2>
                         <small>Productos registrados</small>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-icon green">
-                            <icon>📋</icon></div>
+                        <div class="stat-icon green">📋</div>
                         <p>Productos disponibles</p>
-                        <h2>215</h2>
+                        <h2 id="productos-disponibles">0</h2>
                         <small>En inventario</small>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-icon orange">
-                            <icon>🔢</icon></div>
+                        <div class="stat-icon orange">🔢</div>
                         <p>Unidades registradas</p>
-                        <h2>765</h2>
+                        <h2 id="productos-unidades">0</h2>
                         <small>Existencias totales</small>
                     </div>
                 </div>
+                <form id="form-producto" class="catalog-form oculto" onsubmit="guardarProducto(event)">
+                    <h3 id="producto-form-titulo">Agregar producto</h3>
+                    <div class="admin-form-grid">
+                        <div class="admin-field">
+                            <label for="producto-sku">SKU</label>
+                            <input id="producto-sku" required>
+                        </div>
+                        <div class="admin-field">
+                            <label for="producto-nombre">Nombre</label>
+                            <input id="producto-nombre" required>
+                        </div>
+                        <div class="admin-field">
+                            <label for="producto-unidad">Unidad</label>
+                            <input id="producto-unidad" required>
+                        </div>
+                        <div class="admin-field">
+                            <label for="producto-norte">Stock en almacén Norte</label>
+                            <input id="producto-norte" type="number" min="0" step="1" required>
+                        </div>
+                        <div class="admin-field">
+                            <label for="producto-centro">Stock en almacén Centro</label>
+                            <input id="producto-centro" type="number" min="0" step="1" required>
+                        </div>
+                        <div class="admin-field">
+                            <label for="producto-sur">Stock en almacén Sur</label>
+                            <input id="producto-sur" type="number" min="0" step="1" required>
+                        </div>
+                    </div>
+                    <div class="admin-form-footer">
+                        <button class="admin-btn-cancel" type="button" onclick="cancelarProducto()">Cancelar</button>
+                        <button class="admin-btn-save" type="submit">Guardar producto</button>
+                    </div>
+                </form>
                 <div class="table-card">
                     <div class="table-header">
                         <div>
                             <h3>Lista de productos</h3>
                             <p>Productos registrados en el sistema</p>
                         </div>
-                        <input class="search-input" placeholder="Buscar producto...">
+                        <input id="producto-buscar" class="search-input" placeholder="Buscar producto o SKU..."
+                            oninput="filtrarProductos()">
                     </div>
                     <div class="table-responsive">
-
                         <table>
                             <thead>
                                 <tr>
@@ -50,35 +80,9 @@
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
-
-                            <tbody>
-                                <tr>
-                                    <td>PRO-001</td>
-                                    <td>Tarima de madera</td>
-                                    <td>Pieza</td>
-                                    <td>120</td>
-                                    <td><span class="badge disponible">Disponible</span></td>
-                                    <td>✎ &nbsp; ◉</td>
-                                </tr>
-                                <tr>
-                                    <td>PRO-002</td>
-                                    <td>Materia prima</td>
-                                    <td>Kilogramo</td>
-                                    <td>210</td>
-                                    <td><span class="badge disponible">Disponible</span></td>
-                                    <td>✎ &nbsp; ◉</td>
-                                </tr>
-                                <tr>
-                                    <td>PRO-003</td>
-                                    <td>Empaque industrial</td>
-                                    <td>Paquete</td>
-                                    <td>0</td>
-                                    <td><span class="badge agotado">Agotado</span></td>
-                                    <td>✎ &nbsp; ◉</td>
-                                </tr>
-                            </tbody>
+                            <tbody id="productos-tabla"></tbody>
                         </table>
                     </div>
-                    <div class="table-footer">Mostrando 3 productos de 10</div>
+                    <div class="table-footer" id="productos-pie"></div>
                 </div>
             </section>

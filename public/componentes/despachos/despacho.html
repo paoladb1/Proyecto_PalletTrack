@@ -3,9 +3,9 @@
                 <div class="page-heading">
                     <div>
                         <h1>Asignación y despacho de tarimas</h1>
-                        <p>Confirma el embarque mediante código QR</p>
+                        <p>Valida el código de una tarima para confirmar su embarque.</p>
                     </div>
-                    <span class="badge disponible">● Despacho activo</span>
+                    <span class="badge disponible">Prototipo local</span>
                 </div>
                 <div class="dispatch-filters">
                     <div>
@@ -18,10 +18,18 @@
                     <div>
                         <label for="estado-despacho">Estado</label>
                         <select id="estado-despacho">
-                            <option>Despacho activo</option>
-                            <option>Pendiente</option>
+                            <option value="todos">Todos</option>
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="Despachada">Despachada</option>
                         </select>
                     </div>
+                </div>
+                <div class="dispatch-scan">
+                    <label for="codigo-tarima">Código QR de la tarima</label>
+                    <input id="codigo-tarima" class="search-input" placeholder="Ej. PAL-2026-001"
+                        onkeydown="if(event.key==='Enter') validarTarima()">
+                    <button class="btn-primary" type="button" onclick="validarTarima()">Validar tarima</button>
+                    <p id="despacho-mensaje" role="status"></p>
                 </div>
                 <div class="dispatch-grid">
                     <div class="table-card scan-card">
@@ -31,17 +39,11 @@
                         </div>
                         <div class="qr-area">
                             <div class="qr-icon"></div>
-                            <h3>Escanear código</h3>
-                            <p>Coloca el código QR de la tarima</p>
+                            <h3>Validar código de tarima</h3>
+                            <p>Escribe el código o usa un lector QR que funcione como teclado.</p>
                         </div>
-                        <div class="pallet-info">
-                            <div class="section-title">
-                                <h3>PAL-2026-001</h3>
-                                <span class="badge disponible">Disponible</span>
-                            </div>
-                            <p><strong>Lote:</strong> LOT-2026-05</p>
-                            <p><strong>Producto:</strong> Caja de producto terminado</p>
-                            <p><strong>Ubicación:</strong> A-02 / Rack 04</p>
+                        <div class="pallet-info" id="pallet-info">
+                            <p>Ingresa o selecciona un código QR para validar una tarima.</p>
                         </div>
                     </div>
                     <div class="right-cards">
@@ -50,9 +52,9 @@
                                 <span class="stat-icon orange"></span>
                                 <h3>Control</h3>
                             </div>
-                            <div class="success-icon"></div>
-                            <h3 class="center">No se detectaron errores</h3>
-                            <p class="center">La tarima está disponible</p>
+                            <div class="success-icon" id="despacho-icon"></div>
+                            <h3 class="center" id="despacho-control-titulo">Esperando validación</h3>
+                            <p class="center" id="despacho-control-mensaje">Escanea una tarima para continuar.</p>
 
                         </div>
                         <div class="table-card summary-card">
@@ -61,16 +63,33 @@
                             </div>
                             <div class="summary-row">
                                 <span>Tarimas asignadas</span>
-                                <strong class="number-blue">3</strong>
+                                <strong class="number-blue" id="despacho-asignadas">0</strong>
                             </div>
                             <div class="summary-row">
                                 <span>Pendientes</span>
-                                <strong class="number-orange">2</strong>
+                                <strong class="number-orange" id="despacho-pendientes">0</strong>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="btn-primary confirm-button">
+                <button class="btn-primary confirm-button" id="confirmar-despacho" type="button"
+                    onclick="confirmarDespacho()" disabled>
                     Confirmar embarque
                 </button>
+                <div class="table-card dispatch-list">
+                    <div class="table-header">
+                        <div>
+                            <h3>Tarimas de la orden</h3>
+                            <p>Selecciona una tarima para completar su validación.</p>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr><th>Tarima</th><th>Lote</th><th>Ubicación</th><th>Estado</th><th>Acción</th></tr>
+                            </thead>
+                            <tbody id="despachos-tabla"></tbody>
+                        </table>
+                    </div>
+                </div>
             </section>
