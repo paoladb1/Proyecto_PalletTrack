@@ -34,7 +34,9 @@
 .qr-icon {
     margin-bottom: 10px;
     color: #1674bd;
-    font-size: 65px;
+    width: 65px;
+    height: 65px;
+    fill: currentColor;
 }
 
 .qr-area h3 {
@@ -83,6 +85,27 @@
     background: #c9f4df;
     color: #159957;
     font-size: 40px;
+}
+
+.icon,
+.status-icon {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.qr-icon {
+    fill: currentColor;
+    stroke: none;
+}
+
+.status-icon {
+    width: 34px;
+    height: 34px;
 }
 
 .center {

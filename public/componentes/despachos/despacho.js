@@ -76,7 +76,9 @@ function validarTarima() {
 
 function mostrarEstadoValidacion(valido, titulo, mensaje) {
     const icono = document.getElementById("despacho-icon");
-    icono.textContent = valido ? "✓" : "!";
+    icono.innerHTML = valido
+        ? '<svg class="status-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4L19 7"/></svg>'
+        : '<svg class="status-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6m0 4h.01"/></svg>';
     icono.classList.toggle("validation-error", !valido);
     document.getElementById("despacho-control-titulo").textContent = titulo;
     document.getElementById("despacho-control-mensaje").textContent = mensaje;

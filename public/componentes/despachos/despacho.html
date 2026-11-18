@@ -34,11 +34,18 @@
                 <div class="dispatch-grid">
                     <div class="table-card scan-card">
                         <div class="section-title">
-                            <span class="stat-icon blue"></span>
+                            <span class="stat-icon blue">
+                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M3 4.5h4M3 4.5v4M21 4.5h-4m4 0v4M3 19.5h4m-4 0v-4m18 4h-4m4 0v-4M7 8h10v8H7z"/>
+                                </svg>
+                            </span>
                             <h3>Escaneo de código QR</h3>
                         </div>
                         <div class="qr-area">
-                            <div class="qr-icon"></div>
+                            <svg class="qr-icon" viewBox="0 0 64 64" aria-hidden="true">
+                                <path d="M9 9h18v18H9zm6 6v6h6v-6zm22-6h18v18H37zm6 6v6h6v-6zM9 37h18v18H9zm6 6v6h6v-6zM37 37h6v6h-6zm12 0h6v18h-6zm-12 12h6v6h-6z"/>
+                                <path d="M31 9h2v18h-2zm-22 22h18v2H9zm22 0h2v2h-2zm4 4h18v2H35zm-4 4h2v16h-2zm4 4h6v2h-6zm8 0h2v2h-2zm-16 8h10v2H31z"/>
+                            </svg>
                             <h3>Validar código de tarima</h3>
                             <p>Escribe el código o usa un lector QR que funcione como teclado.</p>
                         </div>
@@ -49,10 +56,20 @@
                     <div class="right-cards">
                         <div class="table-card validation-card">
                             <div class="section-title">
-                                <span class="stat-icon orange"></span>
+                                <span class="stat-icon orange">
+                                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M12 3l7 3v5c0 4.5-2.8 8.3-7 10-4.2-1.7-7-5.5-7-10V6z"/>
+                                        <path d="M9 12l2 2 4-4"/>
+                                    </svg>
+                                </span>
                                 <h3>Control</h3>
                             </div>
-                            <div class="success-icon" id="despacho-icon"></div>
+                            <div class="success-icon" id="despacho-icon">
+                                <svg class="status-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="9"/>
+                                    <path d="M12 8v4m0 4h.01"/>
+                                </svg>
+                            </div>
                             <h3 class="center" id="despacho-control-titulo">Esperando validación</h3>
                             <p class="center" id="despacho-control-mensaje">Escanea una tarima para continuar.</p>
 
