@@ -82,7 +82,7 @@ button {
     height: 45px;
     margin: auto;
     border-radius: 10px;
-    background: #0a4772;
+    background: transparent;
     color: white;
     font-weight: bold;
     font-size: 19px;
